@@ -2,6 +2,10 @@ const express = require('express');
 const axios = require('axios');
 const dotenv = require('dotenv');
 const cors = require('cors');
+app.use(cors({
+  origin: '*', 
+  methods: ['GET', 'POST'],
+}));
 
 dotenv.config();
 const app = express();
@@ -9,7 +13,6 @@ const API_KEY_FACTCHECK = process.env.API_KEY_FACTCHECK;
 const API_KEY_NEWDATA = process.env.API_KEY_NEWDATA;
 const PORT = process.env.PORT || 3000;
 
-app.use(cors());
 app.use(express.json());
 
 // Rota para Google Fact Check API
